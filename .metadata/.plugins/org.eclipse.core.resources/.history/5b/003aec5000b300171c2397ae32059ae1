@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/SetCookieServlet">
+		ID 입력<input type ="text" name = "id">
+		<p>
+		PassWord 입<input type ="password"	name = "passwd">
+		<p>
+		<input type = "submit" name = "쿠키생성">
+	</form>
+
+</body>
+</html>

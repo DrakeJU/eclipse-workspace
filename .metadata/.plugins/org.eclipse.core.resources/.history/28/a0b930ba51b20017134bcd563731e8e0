@@ -1,0 +1,112 @@
+package com.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class PostBoard
+ */
+public class PostBoard extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public PostBoard() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see Servlet#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+		System.out.println("끝\n 곧 다시 시작할꺼야!");
+
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		int totalPage = Integer.valueOf(request.getParameter("TotalPost"));//총 포스팅 수
+		int postlimit = Integer.valueOf(request.getParameter("PostLimit"));//페이지에 포스팅수
+		int numperPage = Integer.valueOf(request.getParameter("NumPerPage"));//페이지에 페이지 표시수
+		int currentPage = Integer.valueOf(request.getParameter("CurrentPage"));//현재 페이지
+
+		Enumeration<String> threeways = request.getParameterNames(); 
+		int maxPage = (int) ((double)totalPage/postlimit+0.95);//몫 페이지 
+		int remaind = totalPage%postlimit;//페이지 나머지 게시물
+		int perPage = totalPage-((currentPage-1)*postlimit);//선택한 페이지에 출력될만큼만 출력하게
+		int subLine;
+		int startpage = 1;
+/*진수방식으로 해야함	*/int pageLevel = 0;
+
+		if(startpage >numperPage) {
+			pageLeve += 1;
+			startpage = numperPage+1;
+		}
+		
+		
+		out.write("<html>");
+		out.write("<body>");
+		out.write("TotalPost : "+totalPage+"<p>");
+		out.write("PostLimit : "+postlimit+"<p>");
+		out.write("NumPerPage : "+numperPage+"<p>");
+		out.write("CurrentPage : "+currentPage+"<p>");
+		out.write("MaxPage : "+maxPage);
+		out.write("<table width = '100%' border='1'><tr></tr></table><p>");
+		
+		for(int i = perPage; i>=(perPage-postlimit);i--) {//게시물 번호 높은순으로부터 출력
+			if(i>0) {
+				out.write("게시물 번호 : "+i+"<br>");
+			}
+		}
+//		if() {//이전 표시
+//			out.write("이전 ");
+//		}
+		for(int i = pageLevel ; i <= maxPage ; i++) { //밑에 subLine 페이지 수 출력
+			out.write(i);
+			if(i == currentPage ) {
+				out.write("<a href="+i+">");
+				out.write(" ["+i+"] ");
+			}else {
+				out.write("&nbsp;&nbsp;"+i+"&nbsp;&nbsp;");
+				out.write("<a href="+i+">");
+
+			}
+			
+		}
+//		if() {//다음 표시
+//			out.write(" 다음");
+//		}
+		
+
+		out.write("</body>");
+		out.write("</html>");
+
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

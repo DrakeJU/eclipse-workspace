@@ -1,0 +1,47 @@
+package com.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class RequestInfo
+ */
+public class RequestInfo extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RequestInfo() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setCharacterEncoding("euc_kr");
+		PrintWriter out = response.getWriter();
+		
+		out.write("<html>");
+		out.write("	<body>");
+		out.write("		서버 이름 : "+ request.getServerName());
+		out.write("<p>		서버 포트 : "+ request.getServerPort());
+		out.write("<p>		전달 방식 : "+ request.getMethod());
+		out.write("<p>		서버 루트 : "+ request.getSession().getServletContext().getRealPath("/"));
+		out.write("<p>		QueryString : "+request.getQueryString());
+		out.write("	</body>");
+		out.write("</html>");
+		
+		
+		
+	}
+
+}

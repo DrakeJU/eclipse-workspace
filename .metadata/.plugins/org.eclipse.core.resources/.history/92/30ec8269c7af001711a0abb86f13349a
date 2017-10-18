@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>indexPage</title>
+</head>
+<body>
+	전체게시물갯수 : 		<input type="text" name="TotalPost"><br> 
+	페이지당 게시물 갯수 : 	<input type="text" name="NumPerPost"><br> 
+	페이지당보이는 페이지 수 : <input type="text" name="NumPerPage"><br> 
+	선택 페이지 : 			<input type="text" name="CurrentPage"><br>
+	<input type = submit value = "보이기">
+</body>
+</html>

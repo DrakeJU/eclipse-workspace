@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href = "www.naver.com" target = "_blank">네이버</a>
+	<!-- http://localhost:8000/ -->
+	상대경로 : 기존경로를 기준으로 현재 경로 설정
+</body>
+</html>

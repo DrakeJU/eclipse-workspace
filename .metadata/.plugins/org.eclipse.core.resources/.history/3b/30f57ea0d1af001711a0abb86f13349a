@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<title>indexPage</title>
+	</head>
+		<body>
+			<h2 align = "center">게시판을 만들어보자!!!제발</h2>
+				<form action "/PostBoard" method = "post">
+				<table border="1" width = "500" heigth = "100" align = "center">
+					<tr>
+						<td>전체 게시물 갯수</td> <td>:</td><td><input type="text" name="TotalPost"><br></td>
+					</tr>
+					<tr>
+						<td>페이지당 게시물 갯수</td><td>:</td><td><input type="text" name="NumPerPost"><br></td> 
+					</tr>
+					<tr>
+						<td>페이지당보이는 페이지 수</td> <td>:</td><td><input type="text" name="NumPerPage"><br></td> 
+					</tr>
+					<tr>
+						<td>선택 페이지</td> <td>:</td><td><input type="text" name="CurrentPage"><br></td>
+					</tr>
+					<tr>
+						<td colspan = "3"><input type = submit value = "보이기" align = "center"></td>
+					</tr>
+				</table>
+				</form>
+		</body>
+</html>
